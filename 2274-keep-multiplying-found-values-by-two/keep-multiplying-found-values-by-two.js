@@ -4,11 +4,12 @@
  * @return {number}
  */
 var findFinalValue = function(nums, original) {
-     for(let i=0;i<nums.length;i++){
-        if(nums[i]===original){
-        original = 2*original
-        i = -1
-     }   
-     }
-     return original
+         let or=nums.sort((a,b)=>a-b);
+    for(let i=0;i<=nums.length-1;i++){
+        if(or[i]===original){
+            original=original*2
+        }  
+    }
+    console.log(original)
+    return original
 };
