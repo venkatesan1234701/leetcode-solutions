@@ -3,20 +3,22 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    let arr = []
-    for(let i=0;i<s.length;i++){
-      if(s[i]==="["){
-        arr.push("]")
-      }
-      else if(s[i]==="{"){
-        arr.push("}")
-      }
-      else if(s[i]==="("){
-        arr.push(")")
-      }
-      else if(arr.pop()!==s[i]){
-        return false
-      }
-    } 
-    return !arr.length 
+let v = true
+let num = []
+for(let i=0;i<s.length;i++){
+  if(s[i]=="("){
+    num.push(")")
+  }else if(s[i]==="["){
+    num.push("]")
+  }else if(s[i]==="{"){
+    num.push("}")
+  }else if(s[i]!==num.pop()){
+    v = false
+    break
+  }
+}
+if(num.length!==0){
+  v = false
+}
+return v
 };
